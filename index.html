@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Jogo da Memória</title>
+</head>
+
+<body onload="initialSetup()">
+    <script src="script.js"></script>
+    <div class="container">
+        <h1>Jogo da Memória</h1>
+        <button id="start-button">Começar novo jogo!</button>
+        <div id="tabuleiro">
+        </div>
+    </div>
+<script>document.getElementById("start-button").addEventListener("click", prepareNewGame)</script>
+</body>
+
+</html>

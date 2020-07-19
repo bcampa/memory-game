@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.container {
+    margin: 0 100px;
+}
+
+div#tabuleiro {
+    background-color: #eee;
+    margin: auto;
+    display: flex;
+    width: 470px;
+    height: 470px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ and Edge */
+    user-select: none; /* Standard syntax */
+}
+
+img.card-image {
+    height: 90x;
+    width: 90px;
+    margin: 10px;
+}
+
+button {
+    background-color: #2a608f;
+    color: #fff;
+    cursor: pointer;
+    width: 472px;
+    border: none;
+    padding: 0.5em;
+    margin: 15px;
+    border-radius: 5px;
+}
+
+button:active {
+    background-color: #22517a;
+}
+
+
+/* O código a seguir foi adaptado da página https://www.w3schools.com/howto/howto_css_flip_card.asp */
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 110px;
+    height: 110px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin: auto;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip */
+.flip-card.face-down .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 7px;
+    box-shadow: 0px 2px 5px #aaa;
+}
+
+.flip-card-front {
+    background-color: #fff;
+}
+
+.flip-card-back {
+    background-color: #b29f8a;
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
