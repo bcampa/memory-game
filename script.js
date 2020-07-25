@@ -26,7 +26,7 @@ function startGame() {
 }
 
 function endGame() {
-    let gameEnd = Date.now();
+    const gameEnd = Date.now();
     let timeSpent = gameEnd - gameStart;
     timeSpent /= 1000;
     timeSpent = Math.floor(timeSpent);
@@ -38,8 +38,8 @@ function endGame() {
     );
 }
 
-let cardEventHandler = function (event) {
-    let card = event.currentTarget;
+function cardEventHandler(event) {
+    const card = event.currentTarget;
     card.removeEventListener("click", cardEventHandler);
     // faz a carta desvirar
     card.classList.remove("face-down");
@@ -74,7 +74,7 @@ let cardEventHandler = function (event) {
 }
 
 // esta função é usada quando as duas cartas que foram desviradas não formam um par
-let setCardFaceDown = function () {
+function setCardFaceDown() {
     firstCard.classList.add("face-down");
     secondCard.classList.add("face-down");
     firstCard = null;
@@ -107,7 +107,7 @@ function setAllCardsFaceUp() {
 }
 
 function initialSetup() {
-    let faces = ["facebook",
+    const faces = ["facebook",
         "android",
         "chrome",
         "firefox",
@@ -117,31 +117,31 @@ function initialSetup() {
         "windows"
     ];
     for (face of faces) {
-        let tabuleiro = document.getElementById("tabuleiro");
+        const tabuleiro = document.getElementById("tabuleiro");
         for (let i = 0; i < 2; i++) {
-            let card = document.createElement("div");
+            const card = document.createElement("div");
             card.classList.add("flip-card");
             card.classList.add(face);
 
-            let cardInner = document.createElement("div");
+            const cardInner = document.createElement("div");
             cardInner.classList.add("flip-card-inner");
             card.appendChild(cardInner);
 
-            let cardFront = document.createElement("div");
+            const cardFront = document.createElement("div");
             cardFront.classList.add("flip-card-front");
             cardInner.appendChild(cardFront);
 
-            let cardFace = document.createElement("img");
+            const cardFace = document.createElement("img");
             cardFace.src = `img/${face}.png`;
             cardFace.classList.add("card-image");
             cardFace.ondragstart = function () { return false; };
             cardFront.appendChild(cardFace);
 
-            let cardBack = document.createElement("div");
+            const cardBack = document.createElement("div");
             cardBack.classList.add("flip-card-back");
             cardInner.appendChild(cardBack);
 
-            let cardBackImage = document.createElement("img");
+            const cardBackImage = document.createElement("img");
             cardBackImage.src = "img/cross.png";
             cardBackImage.classList.add("card-image");
             cardBackImage.ondragstart = function () { return false; };
@@ -160,13 +160,13 @@ function resetCards() {
 function shuffleArray(array) {
     // Durstenfeld shuffle
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
 function updateCards() {
-    let tabuleiro = document.getElementById("tabuleiro");
+    const tabuleiro = document.getElementById("tabuleiro");
     for (card of unmatchedCards) {
         tabuleiro.appendChild(card);
     }
